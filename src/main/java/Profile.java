@@ -61,13 +61,19 @@ public class Profile {
                     Actions actions = new Actions(driver);
                     actions.moveToElement(tmp);
                     actions.perform();
+                    //folder chua code
+                    try {
+                        driver.findElement(By.xpath("//*[@id=\"fileInput\"]")).sendKeys("D:\\SourceCode\\Java\\Java_Code_PTIT\\" + listId.get(i) + ".java");
+                        driver.findElement(By.className("submit__pad__btn")).sendKeys(Keys.ENTER);
+                        System.out.println(listUrl.get(i));
+                        System.out.println("D:\\SourceCode\\Java\\Java_Code_PTIT\\" + listId.get(i) + ".java");
 
-                    driver.findElement(By.xpath("//*[@id=\"fileInput\"]")).sendKeys("D:\\SourceCode\\Java\\Java_Code_PTIT\\" + listId.get(i) + ".java");
-                    System.out.println(listUrl.get(i));
-                    System.out.println("D:\\SourceCode\\Java\\Java_Code_PTIT\\" + listId.get(i) + ".java");
-                    driver.findElement(By.className("submit__pad__btn")).sendKeys(Keys.ENTER);
-                    // thoi gian delay giua cac lan submit
-                    Thread.sleep(generator.nextInt(10) * 10000);
+                        // thoi gian delay giua cac lan submit
+                        Thread.sleep((generator.nextInt(3) + 3) * 60000);
+                    }
+                    catch (Exception e) {
+
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
